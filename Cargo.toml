@@ -1,5 +1,5 @@
 [package]
-name = "wasmer-workspace"
+name = "cw-wasmer-workspace"
 description = "Wasmer workspace"
 publish = false
 autoexamples = false
@@ -12,10 +12,8 @@ rust-version.workspace = true
 version.workspace = true
 
 [dependencies]
-wasmer = { version = "=5.0.6", path = "lib/api", default-features = false }
-wasmer-compiler = { version = "=5.0.6", path = "lib/compiler", features = [
-	"compiler",
-], optional = true }
+cw-wasmer = { version = "=5.0.6", path = "lib/api", default-features = false }
+wasmer-compiler = { version = "=5.0.6", path = "lib/compiler", features = ["compiler"], optional = true }
 wasmer-compiler-cranelift = { version = "=5.0.6", path = "lib/compiler-cranelift", optional = true }
 wasmer-compiler-singlepass = { version = "=5.0.6", path = "lib/compiler-singlepass", optional = true }
 wasmer-compiler-llvm = { version = "=5.0.6", path = "lib/compiler-llvm", optional = true }
@@ -29,11 +27,7 @@ wasmer-middlewares = { version = "=5.0.6", path = "lib/middlewares", optional = 
 # Third party dependencies
 cfg-if = "1.0"
 
-tokio = { version = "1.39", features = [
-	"rt",
-	"rt-multi-thread",
-	"macros",
-], optional = true }
+tokio = { version = "1.39", features = ["rt", "rt-multi-thread", "macros"], optional = true }
 crossbeam-queue = "0.3.8"
 
 [workspace]
@@ -102,9 +96,7 @@ hyper = "1"
 reqwest = { version = "0.12.0", default-features = false }
 enumset = "1.1.0"
 memoffset = "0.9.0"
-wasmparser = { version = "0.216.0", default-features = false, features = [
-	"validate",
-] }
+wasmparser = { version = "0.216.0", default-features = false, features = ["validate"] }
 rkyv = { version = "0.8.8", features = ["indexmap-2", "bytes-1"] }
 memmap2 = { version = "0.6.2" }
 toml = { version = "0.5.9", features = ["preserve_order"] }
@@ -132,11 +124,7 @@ glob = "0.3"
 rustc_version = "0.4"
 
 [dev-dependencies]
-wasmer = { version = "=5.0.6", path = "lib/api", features = [
-	"compiler",
-	"singlepass",
-	"sys",
-] }
+cw-wasmer = { version = "=5.0.6", path = "lib/api", features = ["compiler",	"singlepass", "sys"] }
 anyhow = "1.0"
 criterion = { version = "0.5", features = ["csv_output"] }
 clap = { version = "=4.4.11" }
@@ -163,20 +151,20 @@ default = ["wat", "wast", "cache", "wasi", "engine", "middlewares"]
 # backend means that the `wasmer` crate will be compiled with the `wasmer-compiler` or the `jsc`.
 # That means: that is able to execute modules
 backend = []
-jsc = ["wasmer/jsc", "backend", "wat", "wasmer/std"]
-wamr = ["wasmer/wamr"]
-v8 = ["wasmer/v8"]
-wasmi = ["wasmer/wasmi"]
+jsc = ["cw-wasmer/jsc", "backend", "wat", "cw-wasmer/std"]
+wamr = ["cw-wasmer/wamr"]
+v8 = ["cw-wasmer/v8"]
+wasmi = ["cw-wasmer/wasmi"]
 engine = ["universal"]
 universal = []
 cache = ["wasmer-cache"]
 wast = ["wasmer-wast"]
 wasi = ["wasmer-wasix"]
-wat = ["wasmer/wat"]
-compiler = ["wasmer/compiler", "backend", "wasmer-compiler/translator"]
-singlepass = ["compiler", "wasmer-compiler-singlepass", "wasmer/singlepass"]
-cranelift = ["compiler", "wasmer-compiler-cranelift", "wasmer/cranelift"]
-llvm = ["compiler", "wasmer-compiler-llvm", "wasmer/llvm"]
+wat = ["cw-wasmer/wat"]
+compiler = ["cw-wasmer/compiler", "backend", "wasmer-compiler/translator"]
+singlepass = ["compiler", "wasmer-compiler-singlepass", "cw-wasmer/singlepass"]
+cranelift = ["compiler", "wasmer-compiler-cranelift", "cw-wasmer/cranelift"]
+llvm = ["compiler", "wasmer-compiler-llvm", "cw-wasmer/llvm"]
 middlewares = ["wasmer-middlewares"]
 wasmer-artifact-load = ["wasmer-compiler/wasmer-artifact-load"]
 wasmer-artifact-create = ["wasmer-compiler/wasmer-artifact-create"]

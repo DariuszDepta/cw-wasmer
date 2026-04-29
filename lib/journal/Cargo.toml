@@ -10,17 +10,13 @@ repository.workspace = true
 rust-version.workspace = true
 
 [features]
-default = ["log-file", "wasmer/sys"]
+default = ["log-file", "cw-wasmer/sys"]
 log-file = ["shared-buffer"]
 
 [dependencies]
-wasmer = { default-features = false, path = "../api", version = "=5.0.6" }
-wasmer-wasix-types = { path = "../wasi-types", version = "0.35.0", features = [
-	"enable-serde",
-] }
-virtual-net = { path = "../virtual-net", version = "0.14.0", default-features = false, features = [
-	"rkyv",
-] }
+cw-wasmer = { default-features = false, path = "../api", version = "=5.0.6" }
+wasmer-wasix-types = { path = "../wasi-types", version = "0.35.0", features = ["enable-serde"] }
+virtual-net = { path = "../virtual-net", version = "0.14.0", default-features = false, features = ["rkyv"] }
 virtual-fs = { path = "../virtual-fs", version = "0.21.0", default-features = false }
 
 shared-buffer = { workspace = true, optional = true }
