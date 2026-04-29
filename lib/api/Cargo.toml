@@ -42,10 +42,7 @@ rustc-demangle = "0.1"
 shared-buffer = { workspace = true }
 wasmi_c_api = { version = "0.38.0", package = "wasmi_c_api_impl", optional = true }
 seq-macro = { version = "0.3.5", optional = true }
-loupe = { version = "0.1.3", optional = true, features = [
-	"indexmap",
-	"enable-indexmap",
-] }
+loupe = { version = "0.1.3", optional = true, features = ["indexmap", "enable-indexmap"] }
 
 # Dependencies and Development Dependencies for `sys`.
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
@@ -78,9 +75,7 @@ macro-wasmer-universal-test = { version = "5.0.6", path = "./macro-wasmer-univer
 # Dependencies and Develoment Dependencies for `js`.
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 # - Mandatory dependencies for `js`.
-wasmer-types = { path = "../types", version = "=5.0.6", default-features = false, features = [
-	"std",
-] }
+wasmer-types = { path = "../types", version = "=5.0.6", default-features = false, features = ["std"] }
 wasm-bindgen = "0.2.74"
 js-sys = "0.3.51"
 wasmer-derive = { path = "../derive", version = "=5.0.6" }
