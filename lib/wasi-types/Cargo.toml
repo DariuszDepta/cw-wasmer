@@ -15,13 +15,11 @@ rust-version.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-wasmer = { default-features = false, path = "../api", version = "=5.0.6" }
+cw-wasmer = { default-features = false, path = "../api", version = "=5.0.6" }
 wasmer-types = { path = "../types", version = "=5.0.6" }
 wasmer-derive = { path = "../derive", version = "=5.0.6" }
 wai-bindgen-gen-rust = "0.2.1"
-wai-bindgen-rust = { version = "0.2.1", default-features = false, features = [
-	"macros",
-] }
+wai-bindgen-rust = { version = "0.2.1", default-features = false, features = ["macros"] }
 wai-bindgen-gen-rust-wasm = "0.2.1"
 wai-bindgen-gen-core = "0.2.1"
 wai-parser = "0.2.1"
@@ -41,5 +39,5 @@ version = "1.3.0"
 enable-serde = ["serde", "wasmer-types/serde"]
 
 [package.metadata.docs.rs]
-features = ["wasmer/sys"]
+features = ["cw-wasmer/sys"]
 rustc-args = ["--cfg", "docsrs"]

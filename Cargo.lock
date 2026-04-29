@@ -1188,6 +1188,88 @@ dependencies = [
 ]
 
 [[package]]
+name = "cw-wasmer"
+version = "5.0.6"
+dependencies = [
+ "anyhow",
+ "bindgen",
+ "bytes",
+ "cfg-if",
+ "cmake",
+ "hashbrown 0.11.2",
+ "indexmap 2.7.0",
+ "js-sys",
+ "loupe",
+ "macro-wasmer-universal-test",
+ "more-asserts",
+ "rustc-demangle",
+ "rusty_jsc",
+ "seq-macro",
+ "serde",
+ "serde-wasm-bindgen",
+ "shared-buffer",
+ "tar",
+ "target-lexicon 0.12.16",
+ "tempfile",
+ "thiserror 1.0.69",
+ "tracing",
+ "ureq",
+ "wasm-bindgen",
+ "wasm-bindgen-test",
+ "wasmer-compiler",
+ "wasmer-compiler-cranelift",
+ "wasmer-compiler-llvm",
+ "wasmer-compiler-singlepass",
+ "wasmer-derive",
+ "wasmer-types",
+ "wasmer-vm",
+ "wasmi_c_api_impl",
+ "wasmparser 0.216.0",
+ "wat",
+ "windows-sys 0.59.0",
+ "xz",
+ "zip",
+]
+
+[[package]]
+name = "cw-wasmer-workspace"
+version = "5.0.6"
+dependencies = [
+ "anyhow",
+ "build-deps",
+ "cfg-if",
+ "clap",
+ "clap_builder",
+ "clap_derive",
+ "clap_lex",
+ "compiler-test-derive",
+ "criterion",
+ "crossbeam-queue",
+ "cw-wasmer",
+ "glob",
+ "reqwest",
+ "rustc_version 0.4.1",
+ "serial_test",
+ "tempfile",
+ "test-generator",
+ "test-log",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+ "ureq",
+ "wasi-test-generator",
+ "wasmer-cache",
+ "wasmer-compiler",
+ "wasmer-compiler-cranelift",
+ "wasmer-compiler-llvm",
+ "wasmer-compiler-singlepass",
+ "wasmer-middlewares",
+ "wasmer-types",
+ "wasmer-wasix",
+ "wasmer-wast",
+]
+
+[[package]]
 name = "cynic"
 version = "3.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6221,11 +6303,11 @@ dependencies = [
  "anyhow",
  "async-trait",
  "bitflags 1.3.2",
+ "cw-wasmer",
  "once_cell",
  "thiserror 1.0.69",
  "tracing",
  "wai-bindgen-wasmer-impl",
- "wasmer",
 ]
 
 [[package]]
@@ -6493,56 +6575,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasmer"
-version = "5.0.6"
-dependencies = [
- "anyhow",
- "bindgen",
- "bytes",
- "cfg-if",
- "cmake",
- "hashbrown 0.11.2",
- "indexmap 2.7.0",
- "js-sys",
- "loupe",
- "macro-wasmer-universal-test",
- "more-asserts",
- "rustc-demangle",
- "rusty_jsc",
- "seq-macro",
- "serde",
- "serde-wasm-bindgen",
- "shared-buffer",
- "tar",
- "target-lexicon 0.12.16",
- "tempfile",
- "thiserror 1.0.69",
- "tracing",
- "ureq",
- "wasm-bindgen",
- "wasm-bindgen-test",
- "wasmer-compiler",
- "wasmer-compiler-cranelift",
- "wasmer-compiler-llvm",
- "wasmer-compiler-singlepass",
- "wasmer-derive",
- "wasmer-types",
- "wasmer-vm",
- "wasmi_c_api_impl",
- "wasmparser 0.216.0",
- "wat",
- "windows-sys 0.59.0",
- "xz",
- "zip",
-]
-
-[[package]]
 name = "wasmer-argus"
 version = "5.0.6"
 dependencies = [
  "anyhow",
  "async-trait",
  "clap",
+ "cw-wasmer",
  "cynic",
  "derive_more 0.99.18",
  "futures",
@@ -6556,7 +6595,6 @@ dependencies = [
  "tracing",
  "tracing-subscriber",
  "url",
- "wasmer",
  "wasmer-backend-api",
  "webc",
 ]
@@ -6595,9 +6633,9 @@ name = "wasmer-bin-fuzz"
 version = "0.0.0"
 dependencies = [
  "anyhow",
+ "cw-wasmer",
  "libfuzzer-sys",
  "wasm-smith",
- "wasmer",
  "wasmer-compiler",
  "wasmer-compiler-cranelift",
  "wasmer-compiler-llvm",
@@ -6612,6 +6650,7 @@ version = "5.0.6"
 dependencies = [
  "cbindgen",
  "cfg-if",
+ "cw-wasmer",
  "enumset",
  "field-offset",
  "inline-c",
@@ -6623,7 +6662,6 @@ dependencies = [
  "tracing-subscriber",
  "typetag",
  "virtual-fs",
- "wasmer",
  "wasmer-compiler",
  "wasmer-compiler-cranelift",
  "wasmer-compiler-llvm",
@@ -6655,11 +6693,11 @@ dependencies = [
  "clap_derive",
  "clap_lex",
  "criterion",
+ "cw-wasmer",
  "hex",
  "rand",
  "tempfile",
  "thiserror 1.0.69",
- "wasmer",
  "wasmer-compiler-singlepass",
 ]
 
@@ -6691,6 +6729,7 @@ dependencies = [
  "colored 2.2.0",
  "comfy-table",
  "console",
+ "cw-wasmer",
  "dialoguer",
  "dirs",
  "dotenvy",
@@ -6749,7 +6788,6 @@ dependencies = [
  "virtual-net",
  "walkdir",
  "wasm-coredump-builder",
- "wasmer",
  "wasmer-backend-api",
  "wasmer-compiler",
  "wasmer-compiler-cranelift",
@@ -6979,6 +7017,7 @@ dependencies = [
  "bincode",
  "bytecheck 0.6.12",
  "bytes",
+ "cw-wasmer",
  "derive_more 1.0.0",
  "lz4_flex",
  "num_enum",
@@ -6992,7 +7031,6 @@ dependencies = [
  "tracing-test",
  "virtual-fs",
  "virtual-net",
- "wasmer",
  "wasmer-wasix-types",
 ]
 
@@ -7000,7 +7038,7 @@ dependencies = [
 name = "wasmer-middlewares"
 version = "5.0.6"
 dependencies = [
- "wasmer",
+ "cw-wasmer",
  "wasmer-types",
  "wasmer-vm",
 ]
@@ -7037,11 +7075,11 @@ dependencies = [
 name = "wasmer-swift"
 version = "0.7.0"
 dependencies = [
+ "cw-wasmer",
  "thiserror 1.0.69",
  "tokio",
  "uniffi",
  "virtual-fs",
- "wasmer",
  "wasmer-package",
  "wasmer-wasix",
  "webc",
@@ -7051,11 +7089,11 @@ dependencies = [
 name = "wasmer-sys-utils"
 version = "0.35.0"
 dependencies = [
+ "cw-wasmer",
  "libc",
  "region",
  "tracing",
  "tracing-subscriber",
- "wasmer",
  "wasmer-types",
  "wasmer-vm",
  "wasmer-wasix",
@@ -7124,6 +7162,7 @@ dependencies = [
  "cfg-if",
  "chrono",
  "cooked-waker",
+ "cw-wasmer",
  "dashmap 6.1.0",
  "derive_more 1.0.0",
  "env_logger",
@@ -7181,7 +7220,6 @@ dependencies = [
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "wasm-bindgen-test",
- "wasmer",
  "wasmer-config",
  "wasmer-journal",
  "wasmer-package",
@@ -7204,6 +7242,7 @@ dependencies = [
  "bitflags 1.3.2",
  "byteorder",
  "cfg-if",
+ "cw-wasmer",
  "num_enum",
  "pretty_assertions",
  "serde",
@@ -7214,7 +7253,6 @@ dependencies = [
  "wai-bindgen-gen-rust-wasm",
  "wai-bindgen-rust",
  "wai-parser",
- "wasmer",
  "wasmer-derive",
  "wasmer-types",
 ]
@@ -7224,54 +7262,16 @@ name = "wasmer-wast"
 version = "5.0.6"
 dependencies = [
  "anyhow",
+ "cw-wasmer",
  "futures",
  "serde",
  "tempfile",
  "thiserror 1.0.69",
  "tokio",
  "virtual-fs",
- "wasmer",
  "wasmer-types",
  "wasmer-wasix",
  "wast 216.0.0",
-]
-
-[[package]]
-name = "wasmer-workspace"
-version = "5.0.6"
-dependencies = [
- "anyhow",
- "build-deps",
- "cfg-if",
- "clap",
- "clap_builder",
- "clap_derive",
- "clap_lex",
- "compiler-test-derive",
- "criterion",
- "crossbeam-queue",
- "glob",
- "reqwest",
- "rustc_version 0.4.1",
- "serial_test",
- "tempfile",
- "test-generator",
- "test-log",
- "tokio",
- "tracing",
- "tracing-subscriber",
- "ureq",
- "wasi-test-generator",
- "wasmer",
- "wasmer-cache",
- "wasmer-compiler",
- "wasmer-compiler-cranelift",
- "wasmer-compiler-llvm",
- "wasmer-compiler-singlepass",
- "wasmer-middlewares",
- "wasmer-types",
- "wasmer-wasix",
- "wasmer-wast",
 ]
 
 [[package]]

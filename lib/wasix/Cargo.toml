@@ -14,21 +14,12 @@ rust-version.workspace = true
 
 [dependencies]
 wasmer-package.workspace = true
-wasmer-wasix-types = { path = "../wasi-types", version = "0.35.0", features = [
-	"enable-serde",
-] }
+wasmer-wasix-types = { path = "../wasi-types", version = "0.35.0", features = ["enable-serde"] }
 wasmer-types = { path = "../types", version = "=5.0.6", default-features = false }
-wasmer = { path = "../api", version = "=5.0.6", default-features = false, features = [
-	"wat",
-	"js-serializable-module",
-] }
+cw-wasmer = { path = "../api", version = "=5.0.6", default-features = false, features = ["wat", "js-serializable-module"] }
 virtual-mio = { path = "../virtual-io", version = "0.7.0", default-features = false }
-virtual-fs = { path = "../virtual-fs", version = "0.21.0", default-features = false, features = [
-	"webc-fs",
-] }
-virtual-net = { path = "../virtual-net", version = "0.14.0", default-features = false, features = [
-	"rkyv",
-] }
+virtual-fs = { path = "../virtual-fs", version = "0.21.0", default-features = false, features = ["webc-fs"] }
+virtual-net = { path = "../virtual-net", version = "0.14.0", default-features = false, features = ["rkyv"] }
 wasmer-journal = { path = "../journal", version = "0.18.0", default-features = false }
 wasmer-config = { version = "0.12.0", path = "../config" }
 
@@ -51,23 +42,14 @@ getrandom = "0.2"
 typetag = { version = "0.1", optional = true }
 serde = { version = "1.0", default-features = false, features = ["derive"] }
 bincode = { version = "1.3" }
-chrono = { version = "^0.4.38", default-features = false, features = [
-	"wasmbind",
-	"std",
-	"clock",
-], optional = true }
+chrono = { version = "^0.4.38", default-features = false, features = ["wasmbind",	"std", "clock",], optional = true }
 bytes = "1"
 anyhow = { version = "1.0.66" }
 sha2 = { version = "0.10" }
 waker-fn = { version = "1.1" }
 cooked-waker = "^5"
 rand = "0.8"
-tokio = { workspace = true, features = [
-	"sync",
-	"macros",
-	"time",
-	"rt",
-], default-features = false }
+tokio = { workspace = true, features = ["sync",	"macros", "time", "rt"], default-features = false }
 tokio-stream = { version = "0.1", features = ["sync"] }
 futures = { version = "0.3" }
 # used by feature='os'
@@ -87,12 +69,7 @@ num_enum = "0.5.7"
 # Used by the WCGI runner
 wcgi = { version = "0.3.0", optional = true }
 wcgi-host = { version = "0.3.0", optional = true }
-tower-http = { version = "0.5.0", features = [
-	"trace",
-	"util",
-	"catch-panic",
-	"cors",
-], optional = true }
+tower-http = { version = "0.5.0", features = ["trace", "util", "catch-panic", "cors"], optional = true }
 tower = { version = "0.4.13", features = ["make", "util"], optional = true }
 url = "2.3.1"
 bytecheck = "0.6.8"
@@ -103,22 +80,8 @@ rayon = { version = "1.7.0", optional = true }
 wasm-bindgen = { version = "0.2.87", optional = true }
 js-sys = { version = "0.3.64", optional = true }
 wasm-bindgen-futures = { version = "0.4.37", optional = true }
-web-sys = { version = "0.3.64", features = [
-	"Request",
-	"RequestInit",
-	"Window",
-	"WorkerGlobalScope",
-	"RequestMode",
-	"Response",
-	"Headers",
-], optional = true }
-hyper-util = { version = "0.1.5", features = [
-	"server",
-	"server-graceful",
-	"tokio",
-	"service",
-	"client",
-], optional = true }
+web-sys = { version = "0.3.64", features = ["Request", "RequestInit", "Window", "WorkerGlobalScope", "RequestMode", "Response", "Headers"], optional = true }
+hyper-util = { version = "0.1.5", features = ["server", "server-graceful", "tokio", "service", "client"], optional = true }
 http-body-util = { version = "0.1.1", optional = true }
 toml = "0.8"
 pin-utils = "0.1.0"
@@ -150,15 +113,8 @@ windows-sys = { version = "0.59", features = [
 terminal_size = { version = "0.3.0" }
 
 [dev-dependencies]
-wasmer = { path = "../api", version = "=5.0.6", default-features = false, features = [
-	"wat",
-	"js-serializable-module",
-] }
-tokio = { workspace = true, features = [
-	"sync",
-	"macros",
-	"rt",
-], default-features = false }
+cw-wasmer = { path = "../api", version = "=5.0.6", default-features = false, features = ["wat",	"js-serializable-module"] }
+tokio = { workspace = true, features = ["sync",	"macros", "rt"], default-features = false }
 pretty_assertions.workspace = true
 tracing-test = "0.2.4"
 wasm-bindgen-test = "0.3.0"
@@ -171,11 +127,7 @@ tracing-wasm = "0.2"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
 tracing-subscriber = { version = "^0.3" }
-wasmer = { path = "../api", version = "=5.0.6", default-features = false, features = [
-	"wat",
-	"js-serializable-module",
-	"cranelift",
-] }
+cw-wasmer = { path = "../api", version = "=5.0.6", default-features = false, features = ["wat",	"js-serializable-module", "cranelift"] }
 
 [features]
 default = ["sys-default"]
@@ -233,7 +185,7 @@ js = [
 	"web-sys",
 ]
 js-default = ["js"]
-test-js = ["js", "wasmer/wat"]
+test-js = ["js", "cw-wasmer/wat"]
 
 host-vnet = ["virtual-net/host-net"]
 host-threads = []

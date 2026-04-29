@@ -13,7 +13,7 @@ edition = "2018"
 [dependencies]
 wasmer-types = { path = "../../../lib/types", version = "=5.0.6" }
 wasmer-wasix = { path = "../../../lib/wasix", version = "=0.35.0" }
-wasmer = { path = "../../../lib/api", version = "=5.0.6", default-features = false }
+cw-wasmer = { path = "../../../lib/api", version = "=5.0.6", default-features = false }
 virtual-fs = { path = "../../../lib/virtual-fs", version = "0.21.0" }
 
 anyhow = "1.0"
@@ -22,14 +22,11 @@ serde = "1"
 tempfile = "3.6.0"
 thiserror = "1.0"
 futures = "0.3"
-tokio = { workspace = true, features = [
-	"io-util",
-	"rt",
-], default-features = false }
+tokio = { workspace = true, features = ["io-util", "rt"], default-features = false }
 
 [features]
 default = ["wat"]
-wat = ["wasmer/wat"]
+wat = ["cw-wasmer/wat"]
 
 [badges]
 maintenance = { status = "actively-developed" }
