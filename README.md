@@ -1,3 +1,10 @@
+> [!NOTE]
+> This is a copy of Wasmer v5.0.6, the last open-source version of the Singlepass compiler.
+> This copy is provided to support CosmWasm in the short term,
+> until Wasmer is fully removed from CosmWasm’s dependencies.
+
+---
+
 <div align="center">
   <a href="https://wasmer.io" target="_blank">
     <picture>
@@ -264,4 +271,3 @@ Wasmer has an amazing community of developers and contributors. Welcome, please 
 > [🇫🇷 Français-French](https://github.com/wasmerio/wasmer/blob/main/docs/fr/README.md) •
 > [🇯🇵 日本 語 -Japanese](https://github.com/wasmerio/wasmer/blob/main/docs/ja/README.md) •
 > [🇰🇷 한국어 -Korean](https://github.com/wasmerio/wasmer/blob/main/docs/ko/README.md)_.
-
